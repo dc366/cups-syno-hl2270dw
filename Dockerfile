@@ -9,10 +9,10 @@ RUN yum install epel-release -y && \
         yum -y install file a2ps libstdc++.i686 glibc.i686 policycoreutils-python wget inotify inotify-tools && \
         rm -rf /var/cache/yum
 
-RUN wget -T 10 -nd --no-cache http://www.brother.com/pub/bsc/linux/packages/hl3070cwlpr-1.1.2-1.i386.rpm && \
-        wget -T 10 -nd --no-cache http://www.brother.com/pub/bsc/linux/packages/hl3070cwcupswrapper-1.1.2-2.i386.rpm && \
-        rpm -ihv --nodeps --replacefiles --replacepkgs hl3070cwlpr-1.1.2-1.i386.rpm && \
-        rpm -ihv --nodeps --replacefiles --replacepkgs hl3070cwcupswrapper-1.1.2-2.i386.rpm && \
+RUN wget -T 10 -nd --no-cache http://www.brother.com/pub/bsc/linux/packages/hl2270dwlpr-1.1.2-1.i386.rpm && \
+        wget -T 10 -nd --no-cache http://www.brother.com/pub/bsc/linux/packages/cupswrapperHL2270DW-2.0.4-2.i386.rpm && \
+        rpm -ihv --nodeps --replacefiles --replacepkgs hl2270dwlpr-1.1.2-1.i386.rpm && \
+        rpm -ihv --nodeps --replacefiles --replacepkgs cupswrapperHL2270DW-2.0.4-2.i386.rpm && \
         rm -rf hl3070cwlpr-1.1.2-1.i386.rpm hl3070cwcupswrapper-1.1.2-2.i386.rpm
 
 RUN sed -i 's/Listen localhost:631/Listen 0.0.0.0:631/' /etc/cups/cupsd.conf && \
